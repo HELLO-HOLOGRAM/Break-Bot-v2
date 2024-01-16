@@ -1,0 +1,6 @@
+.pyc
+.idea/
+venv/
+*.pyc
+config/config.yml
+logs/
