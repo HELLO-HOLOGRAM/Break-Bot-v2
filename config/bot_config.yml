@@ -1,0 +1,19 @@
+# Auto Generate By BreakBotV2
+
+# 项目名称
+# 这个配置只会影响一部分地方显示的项目名称，改不改似乎都没什么区别
+bot-name: break-bot
+version: 1.0
+
+# Remote Client设置
+# 配置模拟Client的连接地址
+# 本地运行一般无须修改，远程连接请修改成对应的url
+# 请不要在url的末尾添加'/'!
+client-address: http://127.0.0.1:8050
+
+# MongoDB设置
+# 配置数据库的连接地址
+db-ip: 127.0.0.1
+db-port: 27017
+db-username: breakbot
+db-passwd: 
