@@ -4,3 +4,5 @@ venv/
 *.pyc
 config/config.yml
 logs/
+.env
+config/bot_config.yml
