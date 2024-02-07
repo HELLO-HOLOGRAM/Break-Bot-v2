@@ -39,17 +39,6 @@ BreakBot的数据存储使用了MongoDB，主要的数据交换格式为Json（�
 pip install -r requirement.txt
 ```
 
-你也可以分别进行安装：
-
-```shell
-pip install pyyaml  # 读写yaml配置文件使用的库
-pip install pycryptodome  # aes解密加密使用的库
-pip install aiohttp  # 异步http(s)请求库
-pip install urllib3  # 同步http(s)请求库
-pip install requests  # 同步http(s)请求库
-pip install fastapi  # 异步api框架，用于搭建服务端
-pip install uvicorn[standard]  # 异步网络服务器，作为fastapi的服务端
-```
 
 ## 使用
 
@@ -65,4 +54,11 @@ python3 break-onebot.py
 
 ### break-onebot.py
 
-None
+```shell
+暂时没有完成启动参数支持
+```
+
+## 命令支持
+
+Break Bot V2支持实时在CLI中通过命令来进行部分交互和调试。
+你可以在启动后通过`help`命令来查看可用命令的列表。
