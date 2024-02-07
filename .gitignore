@@ -6,3 +6,4 @@ config/config.yml
 logs/
 .env
 config/bot_config.yml
+commits_sha.json

@@ -33,6 +33,12 @@ class Config:
     group_whitelist = [9876543210]
     group_superlist = [1122334455]
 
+    # github推送设置
+    github_repo = ['HELLO-HOLOGRAM/Break-Bot-v2']
+    rec_group = []
+    github_pat_token = ''
+    github_api_freq = '120'
+
     def __init__(self):
         # 检测是否存在目录下对应的文件
         if not os.path.exists('config/bot_config.yml'):
@@ -94,7 +100,25 @@ class Config:
                   f"# 这个列表中的群会自动加入白名单中，请不要和群白名单重复！\n"
                   f"# 拥有这个权限的群可以使用bot的一部分限制功能\n"
                   f"group-superlist: {self.group_superlist}\n"
-                  f"\n")
+                  f"\n"
+                  f"# --Github推送设置--\n"
+                  f"# 用于设置对github仓库的更新推送检测\n"
+                  f"\n"
+                  f"# 监测信息发送到的群聊，如果设置为空则关闭该功能\n"
+                  f"rec-group: {self.rec_group}"
+                  f"\n"
+                  f"# 监测的github仓库\n"
+                  f"# 可以为多个仓库，但是如果设置了多个仓库请务必将github api的访问频率设置的更大，防止触发api的访问频率上限\n"
+                  f"github-repo: {self.github_repo}\n"
+                  f"\n"
+                  f"# Github个人访问令牌（PAT）设置\n"
+                  f"# 设置PAT后可以访问拥有对应权限的私有仓库的commit记录，同时可以享有更大的api访问频率限制，可以为空\n"
+                  f"github-pat-token: {self.github_pat_token}\n"
+                  f"\n"
+                  f"# Github API访问频率，单位为秒，默认为两分钟进行一次检测\n"
+                  f"# 默认情况下Github API的访问频率上限为每小时60次，在设置了个人令牌后可以达到每小时5000次\n"
+                  f"# 使用时建议设置个人令牌\n"
+                  f"github-api-freq: {self.github_api_freq}\n")
         # 写入配置文件
         with open('config/bot_config.yml', 'w', encoding='utf-8') as c:
             c.write(config)
@@ -125,5 +149,10 @@ class Config:
         self.command_sep = cfgs['cmd-sep']
         self.command_prefix = cfgs['cmd-prefix']
         self.super_user = cfgs['super-user']
-        self.group_whitelist = cfgs['group-whitelist']
+        self.group_whitelist: list = cfgs['group-whitelist']
+        self.group_whitelist.extend(cfgs['group-superlist'])
         self.group_superlist = cfgs['group-superlist']
+        self.github_repo = cfgs['github-repo']
+        self.github_pat_token = cfgs['github-pat-token']
+        self.github_api_freq = cfgs['github-api-freq']
+        self.rec_group = cfgs['rec-group']
